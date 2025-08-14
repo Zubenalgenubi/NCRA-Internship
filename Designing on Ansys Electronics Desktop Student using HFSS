@@ -1,0 +1,13 @@
+1. Create a new file. Choose HFSS(High Frequency Structural Simulation) from the 'View' tab.
+2. In our case, change the Units to cm for the workspace.
+3. Draw the base conical and cylindrical shapes using the dimensions obtained from calculations. Assign material 'PEC'.
+4. For making the grooves in the flare region, draw inner cone with same inner radius, lower height and smaller aperture. Assign material 'air' to it. Subtract the inner cone from the outer one.
+5. For making a coaxial waveguide, draw a cylinder with larger radius and smaller height intersecting the inner waveguide. Draw a smaller one inside this upper cylinder with same height and material 'air'. Subtrat from the outer one. Now, subtract the bottom 'PEC' cylinder from this configuration.
+6. Repeat step 4 & 5 for the number of corrugations required.
+7. Join the solids. Now assign excitation with modal waveport to the innermost face of the waveguide.
+8. Create a radiation boundary by drawing a box uniformly spaced around the antenna. For phi 0 - 90 degrees. And -180 to 180 for theta
+9. Insert Far fields>>Infinite sphere.
+10. Now setup the Analysis>>Advanced setup. Choose the center frequency as 750MHz. Increase no. of steps to 20 and set "s"=0.01. Add the required sweeps as Sweep1 and Sweep2 250-500MHz and 1-1.5GHz with a step size of 25MHz respectively.
+11. Validate your design and begin with analysing your antenna.
+12. Once finished, go to the results tab>>Create rectangular plot>>S11--dB. Plot for both the sweeps.
+13. Results>>3D polar plot>>Gain--dB
